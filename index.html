@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact book</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="content">
+        <h1>Contact book</h1>
+        <form id="add-form">
+          <input type="text" id="name" placeholder="Имя" required />
+          <input type="email" id="email" placeholder="Email" required />
+          <input type="tel" id="number" placeholder="Телефон" required />
+          <input type="avatar" name="" id="image" placeholder="URL картинки" />
+          <button type="submit" id="add-contact">Добавить контакт</button>
+        </form>
+      </div>
+    </div>
+
+    <div id="contact-list"></div>
+
+    <!-- первая модалка -->
+    <div class="modal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+            <button type="button" class="btn-close">X</button>
+          </div>
+          <div class="modal-body">
+            <div class="admin">
+              <h2>Edit contact</h2>
+              <input type="text" id="edit-name" placeholder="измените имя" />
+              <input type="text" id="edit-email" placeholder="измените email" />
+              <input
+                type="text"
+                id="edit-number"
+                placeholder="измените телефон"
+              />
+              <input
+                type="text"
+                id="edit-image"
+                placeholder="измените URL аватара"
+              />
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="close-btn">Close</button>
+            <button type="button" id="btn-save-edit">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- вторая модалка -->
+    <div class="second-modal">
+      <div class="modal-dialog-sec">
+        <div class="modal-content-sec">
+          <div class="modal-header-sec">
+            <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+            <button type="button" class="close-secmodal">X</button>
+          </div>
+          <div class="modal-body">
+            <div class="admin">
+              <input type="text" placeholder="Кому:" class="send-address" />
+              <input type="text" placeholder="От кого:" class="sender" />
+              <input type="text" placeholder="Введите текст..." class="text" />
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="send">send</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./mian.js"></script>
+  </body>
+</html>
