@@ -1,0 +1,457 @@
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=Lato:wght@300;400;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  color: #fff;
+  font-size: 20px;
+  background-image: linear-gradient(to right, #434343 0%, black 100%);
+}
+
+h1 {
+  text-transform: uppercase;
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+input {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #555;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease-in-out;
+}
+
+input:focus {
+  outline: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+input::placeholder {
+  color: #aaa;
+}
+
+input[type="submit"] {
+  background-color: #0066cc;
+  color: #fff;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #0052a3;
+}
+
+#add-contact {
+  padding: 10px 20px;
+  background-color: #ff4f4f;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  overflow: hidden;
+}
+
+#add-contact::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.282);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+#add-contact:hover::before {
+  opacity: 1;
+}
+
+.container {
+  margin: 0, auto;
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+}
+#add-form {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+#contact-list {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+
+.email {
+  cursor: pointer;
+}
+
+/* контактная карточка */
+
+.contact-card {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.contact-card img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+
+.contact-info h3 {
+  margin: 0;
+}
+
+.contact-info p {
+  margin: 0;
+  font-size: 16px;
+}
+
+/*стили для кнопки "звонок" */
+.phone-icon__btn {
+  display: inline-block;
+  position: relative;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #000;
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+  margin-top: 10px;
+}
+
+.phone-icon__btn:hover {
+  background-color: #43c943;
+}
+
+.circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #fff;
+}
+
+.phone-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  background-image: url(https://img.icons8.com/ios/256/phone--v1.png);
+  background-size: 25px;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+/* стили для кнопок карточки */
+.btns {
+  display: flex;
+  column-gap: 30px;
+  padding-top: 10px;
+}
+
+.btn-delete {
+  display: inline-block;
+  padding: 5px 10px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background-color: rgb(146, 15, 15);
+  border: none;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-delete:hover {
+  background-color: #610202;
+  box-shadow: 0 2px 8px rgba(48, 3, 3, 0.6);
+}
+.btn-edit {
+  display: inline-block;
+  padding: 5px 10px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #000;
+  border: none;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-edit:hover {
+  background-color: #222;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+/* Стили для первого модального окна */
+.modal {
+  visibility: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  overflow: auto;
+}
+
+.modal-dialog {
+  position: relative;
+  width: auto;
+  margin: 10px;
+  pointer-events: none;
+}
+
+.modal-content {
+  position: relative;
+  background-color: #1c1c1c;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  max-width: 500px;
+  pointer-events: auto;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.modal-title {
+  color: #fff;
+  font-size: 20px;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.btn-close {
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-close:focus {
+  outline: none;
+}
+
+.modal-body {
+  margin-bottom: 20px;
+}
+
+.admin {
+  display: flex;
+  flex-direction: column;
+}
+
+.admin h2 {
+  color: #fff;
+  font-size: 18px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.admin input[type="text"] {
+  background-color: #fff;
+  color: #000;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  width: 100%;
+}
+
+.modal-footer {
+  display: flex;
+  gap: 30px;
+  padding: 10px 20px;
+  background-color: #464646;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.close-btn {
+  display: inline-block;
+  padding: 10px 10px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #000;
+  border: none;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  transition: all 0.2s ease-in-out;
+}
+
+.close-btn:hover {
+  background-color: #222;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+#btn-save-edit {
+  background-color: #007bff;
+  display: inline-block;
+  padding: 10px 10px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  transition: all 0.2s ease-in-out;
+}
+
+#btn-save-edit:hover {
+  background-color: #1870ce;
+  box-shadow: 0 2px 8px rgba(3, 41, 91, 0.6);
+}
+
+/* Стили для второго модального окна */
+.second-modal {
+  visibility: hidden;
+  display: flex;
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-dialog-sec {
+  position: relative;
+  margin: 10% auto;
+  padding: 0;
+  width: 50%;
+  max-width: 800px;
+}
+
+.modal-content-sec {
+  position: relative;
+  background-color: #fefefe;
+  border: 1px solid #888;
+  border-radius: 10px;
+  padding: 0;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.modal-header-sec {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #464646;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.modal-title {
+  margin: 0;
+}
+
+.close-secmodal {
+  font-size: 20px;
+  font-weight: bold;
+  color: #555;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+}
+
+.close-secmodal:hover,
+.close-secmodal:focus {
+  color: #000;
+  text-decoration: none;
+}
+
+.modal-body {
+  padding: 20px;
+}
+
+.admin input[type="text"] {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.455);
+  border-radius: 5px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.admin input[type="text"]:focus {
+  outline: none;
+  box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.1);
+}
+
+.text {
+  height: 200px;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px 20px;
+  background-color: #464646;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.send {
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #157937;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.send:hover {
+  background-color: #0f5526;
+}
